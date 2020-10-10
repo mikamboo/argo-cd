@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: my-nginx
-  name: my-nginx
+    app: gh-nginx
+  name: gh-nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-nginx
+      app: gh-nginx
   template:
     metadata:
       labels:
-        app: my-nginx
+        app: gh-nginx
     spec:
       containers:
       - image: nginx:alpine
@@ -31,13 +31,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: my-nginx-svc
+  name: gh-nginx-svc
   labels:
-    app: my-nginx
+    app: gh-nginx
 spec:
   type: ClusterIP
   selector:
-    app: my-nginx
+    app: gh-nginx
   ports:
     - name: web
       port: 80
