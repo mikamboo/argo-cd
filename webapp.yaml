@@ -2,8 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: gh-nginx
-  name: gh-nginx
+    app: github-nginx
+  name: github-nginx
 spec:
   replicas: 1
   selector:
@@ -31,13 +31,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: gh-nginx-svc
+  name: github-nginx-svc
   labels:
-    app: gh-nginx
+    app: github-nginx
 spec:
   type: ClusterIP
   selector:
-    app: gh-nginx
+    app: github-nginx
   ports:
     - name: web
       port: 80
